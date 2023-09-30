@@ -1,0 +1,135 @@
+{
+  "name": "spoke-and-chain",
+  "version": "1.0.0",
+  "description": "Craft Commerce demo site.",
+  "scripts": {
+    "serve": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --config webpack.dev.js",
+    "build": "NODE_ENV=production webpack --config webpack.prod.js --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixelandtonic/spoke-and-chain.git"
+  },
+  "author": {
+    "name": "Pixel & Tonic"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pixelandtonic/spoke-and-chain/issues"
+  },
+  "homepage": "https://github.com/pixelandtonic/spoke-and-chain#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.20",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.22.15",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/register": "^7.22.15",
+    "@babel/runtime": "^7.22.15",
+    "@squoosh/lib": "^0.5.3",
+    "autoprefixer": "^10.4.16",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "create-symlink-webpack-plugin": "^1.0.1",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "cssnano": "^6.0.1",
+    "cypress": "^13.2.0",
+    "cypress-audit": "^1.1.0",
+    "dotenv": "^16.3.1",
+    "file-loader": "^6.2.0",
+    "glob-all": "^3.3.1",
+    "html-webpack-plugin": "^5.5.3",
+    "ignore-loader": "^0.1.2",
+    "image-minimizer-webpack-plugin": "^3.8.3",
+    "img-loader": "^4.0.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "moment": "^2.29.4",
+    "postcss": "^8.4.30",
+    "postcss-import": "^15.1.0",
+    "postcss-loader": "^7.3.3",
+    "postcss-normalize": "^10.0.1",
+    "postcss-preset-env": "^9.1.4",
+    "purgecss-webpack-plugin": "^5.0.0",
+    "resolve-url-loader": "^5.0.0",
+    "sane": "^5.0.1",
+    "style-loader": "^3.3.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-recommended": "^13.0.0",
+    "symlink-webpack-plugin": "^1.1.0",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dashboard": "^3.3.8",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-merge": "^5.9.0",
+    "webpack-notifier": "^1.15.0"
+  },
+  "browserslist": [
+    "> 0.3% and last 2 versions",
+    "ie 11",
+    "not op_mini all",
+    "not dead"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "corejs": "3.22"
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import"
+    ]
+  },
+  "postcss": {
+    "plugins": [
+      [
+        "postcss-import",
+        {
+          "plugins": []
+        }
+      ],
+      "postcss-normalize",
+      "tailwindcss",
+      [
+        "postcss-preset-env",
+        {
+          "features": {
+            "nesting-rules": true
+          }
+        }
+      ]
+    ]
+  },
+  "jshintConfig": {
+    "esversion": 6
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "ecmaFeatures": {
+        "modules": true
+      }
+    }
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.0",
+    "core-js": "^3.32.2",
+    "sanitize.css": "^13.0.0",
+    "swiper": "^10.3.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "engines": {
+    "node": "16.13.0"
+  }
+}

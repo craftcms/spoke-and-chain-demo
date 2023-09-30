@@ -1,0 +1,87 @@
+{
+  "name": "craftcms/demo-spoke-and-chain",
+  "description": "Spoke & Chain Demo",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-commerce",
+    "commerce",
+    "project",
+    "demo",
+    "starter"
+  ],
+  "license": "0BSD",
+  "homepage": "https://craftcms.com/demo",
+  "type": "project",
+  "support": {
+    "email": "support@craftcms.com"
+  },
+  "require": {
+    "bref/bref": "^2.0",
+    "craftcms/aws-s3": "^2.0.0",
+    "craftcms/cloud": "^1.0.0",
+    "craftcms/cms": "^4.5.0",
+    "craftcms/commerce": "^4.1.0",
+    "craftcms/redactor": "^3.0.0",
+    "craftcms/store-hours": "^3.0.0",
+    "craftcms/yii2-dynamodb": "^2.0.1",
+    "fakerphp/faker": "^1.9",
+    "mead-steve/mono-snag": "^4.1",
+    "nystudio107/craft-seomatic": "^4.0.0-beta.8",
+    "nystudio107/craft-twigpack": "^4.0.0-beta.2",
+    "oberon/starfield": "^2.0.0",
+    "php": ">=8.0.2",
+    "putyourlightson/craft-sprig": "^2.0.0-beta.1@dev",
+    "putyourlightson/craft-sprig-core": "dev-cloud-compat as 2.7.0",
+    "solspace/craft-freeform": "4.0.0-beta.5",
+    "verbb/default-dashboard": "^2.0.0-beta.1",
+    "vlucas/phpdotenv": "^5.4.1"
+  },
+  "require-dev": {
+    "craftcms/ecs": "dev-main",
+    "craftcms/phpstan": "dev-main",
+    "yiisoft/yii2-shell": "^2.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules",
+      "modules\\demos\\": "modules/demos/src/",
+      "sprig\\components\\": "sprig/components/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.1.8"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  },
+  "scripts": {
+    "post-create-project-cmd": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+      "@php craft db/restore seed.sql > /dev/null 2>&1",
+      "@php craft demos/seed > /dev/null 2>&1"
+    ],
+    "phpstan": "phpstan --memory-limit=1G",
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.craftcms.com",
+      "canonical": false
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/craftcms/craft-sprig-core.git"
+    }
+  ]
+}

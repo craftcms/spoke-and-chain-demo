@@ -1,0 +1,27 @@
+version: "3.6"
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "${HOST_WEB_PORT}:8080"
+    env_file: .env
+    depends_on:
+      mysql:
+        condition: service_healthy
+  mysql:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${CRAFT_DB_DATABASE}
+      MYSQL_USER: ${CRAFT_DB_USER}
+      MYSQL_PASSWORD: ${CRAFT_DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      retries: 3
+
+volumes:
+  db_data:
